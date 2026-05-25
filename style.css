@@ -1,0 +1,188 @@
+body {
+    background: radial-gradient(circle, #1a1c20 0%, #0d0e10 100%);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: white;
+}
+
+.game-container {
+    background: #15171c;
+    border: 1px solid #232731;
+    padding: 35px;
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+    width: 340px;
+    text-align: center;
+}
+
+.game-title {
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    font-weight: 800;
+    background: linear-gradient(to right, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+.mode-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeIn 0.3s ease;
+}
+
+.mode-text {
+    color: #a0a5b5;
+    margin-bottom: 10px;
+}
+
+.btn-mode {
+    background: #1e222b;
+    border: 1px solid #2d3343;
+    color: white;
+    padding: 15px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-mode:hover {
+    background: linear-gradient(135deg, #00dbde, #fc00ff);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(252, 0, 255, 0.2);
+}
+
+.status-box {
+    font-size: 16px;
+    margin-bottom: 25px;
+    color: #a0a5b5;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.player-x { color: #00f2fe; font-weight: bold; }
+.player-o { color: #ff007f; font-weight: bold; }
+
+.board-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    position: relative;
+}
+
+.cell {
+    background: #1e222b;
+    border: 1px solid #2d3343;
+    height: 100px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    z-index: 2;
+}
+
+.cell:hover {
+    background: #252a36;
+    transform: scale(1.03);
+    border-color: #49536a;
+}
+
+.cell.x {
+    color: #00f2fe;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+    animation: popIn 0.2s ease;
+}
+
+.cell.o {
+    color: #ff007f;
+    text-shadow: 0 0 20px rgba(255, 0, 127, 0.8);
+    animation: popIn 0.2s ease;
+}
+
+/* КРУТАЯ НЕОНОВАЯ ЛИНИЯ ПОБЕДЫ */
+.winning-line {
+    position: absolute;
+    background: white;
+    height: 8px;
+    border-radius: 10px;
+    z-index: 10;
+    transform-origin: left center;
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 0;
+}
+
+/* Если победил X - мощный голубой неон */
+.winning-line.x-win {
+    background: #00f2fe;
+    box-shadow: 0 0 10px #00f2fe, 0 0 25px #00f2fe, 0 0 50px #00f2fe;
+}
+
+/* Если победил O - мощный розовый/красный неон */
+.winning-line.o-win {
+    background: #ff007f;
+    box-shadow: 0 0 10px #ff007f, 0 0 25px #ff007f, 0 0 50px #ff007f;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-game {
+    background: linear-gradient(135deg, #232731, #1a1c22);
+    color: #a0a5b5;
+    border: 1px solid #343a4a;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    flex: 1;
+    transition: all 0.2s ease;
+}
+
+.btn-game:hover {
+    background: white;
+    color: black;
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.btn-secondary:hover {
+    background: #ff4b2b;
+    color: white;
+    border-color: #ff4b2b;
+    box-shadow: 0 0 15px rgba(255, 75, 43, 0.5);
+}
+
+.hidden { display: none !important; }
+
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

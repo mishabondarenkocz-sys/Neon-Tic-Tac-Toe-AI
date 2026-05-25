@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Tic-Tac-Toe AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="game-title">Крестики-Нолики</h1>
+        
+        <!-- ЭКРАН ВЫБОРА РЕЖИМА -->
+        <div id="mode-screen" class="mode-container">
+            <p class="mode-text">Выберите режим игры:</p>
+            <button id="btn-vs-ai" class="btn-mode">🤖 Играть против ИИ</button>
+            <button id="btn-vs-friend" class="btn-mode">👥 Играть с другом</button>
+        </div>
+
+        <!-- ИГРОВОЙ ЭКРАН -->
+        <div id="game-screen" class="game-screen hidden">
+            <div id="status" class="status-box">Ход игрока: <span class="player-x">X</span></div>
+
+            <div class="board-container">
+                <div class="board">
+                    <!-- ЛИНИЯ ПОБЕДЫ -->
+                    <div id="winning-line" class="winning-line hidden"></div>
+
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="restart-btn" class="btn-game">Заново</button>
+                <button id="menu-btn" class="btn-game btn-secondary">В меню</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
